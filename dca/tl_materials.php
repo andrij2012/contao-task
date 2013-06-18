@@ -19,20 +19,6 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 	// List
 	'list' => array
 	(
-		/*'sorting' => array
-		(
-			'mode'			=> 1,
-			'fields'		=> array('title'),
-			'flag'			=> 1,
-			'panelLayout'	=> 'filter;search,limit',
-		),
-		
-		'label' => array
-		(
-			'fields'                  => array('title'),
-			'format'                  => '%s'
-		),*/
-		
 		'global_operations' => array
 		(
 			'all' => array
@@ -94,43 +80,14 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['title'],
 			'search'		=> true,
 			'inputType'		=> 'text',
-			'sql'			=> "varchar(64) NOT NULL default ''"
+			'eval'			=> array('mandatory' => true, 'maxlength' => 255),
+			'sql'			=> "varchar(255) NOT NULL default ''"
 		),
-
-		'size' 	=> array
-		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['size'],
-			'search'		=> true,
-			'inputType'		=> 'text',
-			'sql'			=> "int(10) unsigned NOT NULL default '0'"
-		),
-
-		'image' => array
-		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['image'],
-			'inputType'		=> 'fileTree',
-			'sql'			=> "varchar(64) NOT NULL default ''"
-		),
-		
-		'type' => array
-		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['type'],
-			'inputType'		=> 'text',
-			'sql'			=> "varchar(64) NOT NULL default ''"
-		),
-		
-		'src' => array
-		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['type'],
-			'sql'			=> "varchar(64) NOT NULL default ''"
-		)
-		
 	)
 );
 
 class tl_materials extends Backend
 {
-	// Constructor of tl_materials
 	public function __construct()
 	{
 		parent::__construct();

@@ -1,18 +1,13 @@
 <?php
-
-$GLOBALS['TL_LANG']['tl_materials_category']['title_legend'] = 'Type and Image';
-/*	$GLOBALS['TL_LANG']['tl_materials_category']['imageURL'] = 'Image URL';
-	$GLOBALS['TL_LANG']['tl_materials_category']['title'] = "Type name";
-*/
-
 $GLOBALS['TL_DCA']['tl_materials_category'] = array
 (
 	// Config
 	'config' => array
 	(
-		'dataContainer' => 'Table',
-		'ctable' 		=> array('tl_materials'),
-		'sql' 			=> array
+		'dataContainer' 	=> 'Table',
+		'ctable' 			=> array('tl_materials'),
+		'enableVersioning'	=> true,
+		'sql' 				=> array
 		(
 			'keys' => array
 			(
@@ -23,38 +18,36 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 	
 	'list' => array
 	(
-		/*'global_operations' => array
-		(
-			'all' => array
-			(
-			'label'			=> &$GLOBALS['TL_LANG']['MSC']['all'],
-			'href'			=> 'act=select',
-			'class'			=> 'header_edit_all',
-			'attributes'	=> 'onclick="Backend.getScrollOffset();"'
-			)
-		),*/
-		
-		'operations'		=> array
+		'operations' => array
 		(
 			'edit'			=> array
 			(
-				'label'		=> &$GLOBALS['TL_LANG']['tl_materials']['edit'],
+				'label'		=> &$GLOBALS['TL_LANG']['tl_materials_category']['edit'],
 				'href'		=> 'act=edit',
 				'icon'		=> 'edit.gif'
 			),
 			
 			'copy'			=> array
 			(
-				'label'		=> &$GLOBALS['TL_LANG']['tl_materials']['copy'],
+				'label'		=> &$GLOBALS['TL_LANG']['tl_materials_category']['copy'],
 				'href'		=> 'act=copy',
 				'icon'		=> 'copy.gif'
+			),
+
+			'delete' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_materials_category']['delete'],
+				'href'                => 'act=delete',
+				'icon'                => 'delete.gif',
+				'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
 			)
 		)
 	),
 	
 	'palettes' => array
-	(
-		'default'			=> '{title_legend},title,imageURL',
+	(	
+		'__selector__'  	=> array('title', 'singleSRC'),
+		'default'			=> '{title_legend},title, singleSRC, imageURL',
 		
 	),
 	
@@ -72,21 +65,34 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 			'sql'			=> "int(10) unsigned NOT NULL default '0'"
 		),
 
+		'singleSRC' => array
+		(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_materials_category']['singleSRC'],
+			'exclude'                 => true,
+			'inputType'               => 'fileTree',
+			'eval'                    => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio', 'mandatory' => true, 'path' => 'files/materials_content'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
+		),
+
 		'title' 	=> array
 		(
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials_category']['title'],
 			'inputType'		=> 'text',
-			'eval'			=> array('mandatory'=>true ,'tl_class'=>'w50'),
-			'sql'			=> "varchar(255) NOT NULL default ''"
-		),
-		
-		'imageURL'	=> array
-		(
-			'label'			=> &$GLOBALS['TL_LANG']['tl_materials_category']['imageURL'],
-			'exclude'		=> true,
-			'inputType'		=> 'text',
-			'eval'          => array('mandatory'=>true, 'rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>255),
+			'eval'			=> array('mandatory' => true, 'maxlength' =>255),
 			'sql'			=> "varchar(255) NOT NULL default ''"
 		)
 	)
 );
+
+class tl_materials_category extends Backend
+{
+
+	/**
+	 * Import the back end user object
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->import('BackendUser', 'User');
+	}
+}
