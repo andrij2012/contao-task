@@ -6,7 +6,8 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 	'config' => array
 	(
 		'dataContainer' => 'Table',
-		'sql' => array
+		'ptable' 		=> 'tl_materials_category',
+		'sql' 			=> array
 		(
 			'keys' => array
 			(
@@ -74,6 +75,12 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 		(
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['id'],
 			'sql'			=> "int(10) unsigned NOT NULL auto_increment"
+		),
+
+		'pid' => array
+		(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['pid'],
+			'sql'			=> "int(10) unsigned NOT NULL default '0'"
 		),
 
 		'tstamp' => array
