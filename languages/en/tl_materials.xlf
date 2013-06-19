@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="system/modules/materials/languages/en/tl_materials_category.php" source-language="en">
+    <body>
+      	<trans-unit id="tl_materials.title_legend">
+        	<source>Type and size</source>
+      	</trans-unit>
+      	<trans-unit id="tl_materials.title.0">
+        	<source>Type name</source>
+      	</trans-unit>
+      	<trans-unit id="tl_materials.title.1">
+      		<source>Please input a title of document</source>
+      	</trans-unit>
+        <trans-unit id="tl_materials.size.0">
+          <source>Size</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.size.1">
+          <source>Please input the size of document</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.image.0">
+          <source>Add image</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.image.1">
+          <source>Please choose the image that responsible certain document. The size of image must be 64 x 64 px</source>
+        </trans-unit>
+    </body>
+   </file>
+</xliff>

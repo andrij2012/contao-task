@@ -1,9 +1,7 @@
 <?php
-
 System::loadLanguageFile('tl_materials');
 $GLOBALS['TL_DCA']['tl_materials_category'] = array
 (
-	// Config
 	'config' => array
 	(
 		'dataContainer' 	=> 'Table',
@@ -54,14 +52,21 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 				'label'               => &$GLOBALS['TL_LANG']['tl_materials_category']['delete'],
 				'href'                => 'act=delete',
 				'icon'                => 'delete.gif',
-				'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+				'attributes'          => 'onclick = "if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
+			),
+
+			'documents' => array
+			(
+				'label'				=> &$GLOBALS['TL_LANG']['tl_materials_category']['documents'],
+				'href'				=> 'table=tl_materials',
+				'icon'				=> 'store.gif'
 			)
 		)
 	),
 	
 	'palettes' => array
 	(	
-		'default'			=> '{title_legend},title, singleSRC, imageURL',
+		'default'			=> '{title_legend},title, singleSRC',
 		
 	),
 	
@@ -92,6 +97,7 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 		(
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials_category']['title'],
 			'inputType'		=> 'text',
+			'search'		=> true,
 			'eval'			=> array('mandatory' => true, 'maxlength' =>255),
 			'sql'			=> "varchar(255) NOT NULL default ''"
 		)
@@ -101,9 +107,7 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 class tl_materials_category extends Backend
 {
 
-	/**
-	 * Import the back end user object
-	 */
+	
 	public function __construct()
 	{
 		parent::__construct();

@@ -1,8 +1,6 @@
 <?php
 $GLOBALS['TL_DCA']['tl_materials'] = array
-(
-
-	// Config
+(	
 	'config' => array
 	(
 		'dataContainer' => 'Table',
@@ -15,21 +13,19 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 			)
 		)
 	),
-
-	// List
+	
 	'list' => array
 	(
-		'global_operations' => array
+		'sorting' => array
 		(
-			'all' => array
-			(
-			'label'			=> &$GLOBALS['TL_LANG']['MSC']['all'],
-			'href'			=> 'act=select',
-			'class'			=> 'header_edit_all',
-			'attributes'	=> 'onclick="Backend.getScrollOffset();"'
-			)
+			'mode'					=> 4,
+			'fields'				=> array('title'),
+			'flag'					=> 1,
+			'headerFields'			=> array('title'),
+			'panelLayout'			=> 'filter, sort; search, limit',
+			'child_record_callback'	=> array('tl_materials', 'listMaterials')
 		),
-		
+
 		'operations'		=> array
 		(
 			'edit'			=> array
@@ -44,17 +40,25 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 				'label'		=> &$GLOBALS['TL_LANG']['tl_materials']['copy'],
 				'href'		=> 'act=copy',
 				'icon'		=> 'copy.gif'
+			),
+
+			'delete' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['tl_materials_category']['delete'],
+				'href'                => 'act=delete',
+				'icon'                => 'delete.gif',
+				'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
 			)
 		)
 	),
 
-	// Palettes
+	
 	'palettes' => array
 	(
-		'default'			=> '{title_legent},title,size;{image_legent},image'
+		'default'			=> '{title_legend},title,size,image'
 	),
 
-	// Fields
+	
 	'fields' => array
 	(
 		'id' 	=> array
@@ -83,6 +87,24 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 			'eval'			=> array('mandatory' => true, 'maxlength' => 255),
 			'sql'			=> "varchar(255) NOT NULL default ''"
 		),
+
+		'size' => array
+		(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['size'],
+			'inputType'		=> 'text',
+			'eval'			=> array('mandatory' => true, 'maxlength' => 10),
+			'sql'			=> "int(10) unsigned NOT NULL default ''"
+		),
+
+		'image' => array
+		(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['image'],
+			'exclude'		=> true,
+			'inputType'		=> 'fileTree',
+			'eval'          => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio', 'mandatory' => true,
+							   'path' => 'files/materials_documents'),
+			'sql'           => "varchar(255) NOT NULL default ''"
+		)
 	)
 );
 
@@ -94,4 +116,3 @@ class tl_materials extends Backend
 		$this->import('BackendUser', 'User');
 	}
 }
-
