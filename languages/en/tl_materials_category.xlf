@@ -15,7 +15,7 @@
           <source>Add image</source>
         </trans-unit>
         <trans-unit id="tl_materials_category.singleSRC.1">
-          <source>Please choose the image that responsible certain type of content</source>
+          <source>Please choose the image that responsible certain type of content. The size of image must be 64 x 64 px</source>
         </trans-unit>
     </body>
    </file>

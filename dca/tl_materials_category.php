@@ -20,6 +20,12 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 	
 	'list' => array
 	(
+		'sorting' => array
+		(
+			'mode'                    => 1,
+			'fields'                  => array('title'),
+			'flag' 					  => 1
+		),
 
 		'label' => array
 		(
@@ -55,7 +61,6 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 	
 	'palettes' => array
 	(	
-		'__selector__'  	=> array('title'),
 		'default'			=> '{title_legend},title, singleSRC, imageURL',
 		
 	),
