@@ -1,4 +1,6 @@
 <?php
+
+System::loadLanguageFile('tl_materials');
 $GLOBALS['TL_DCA']['tl_materials_category'] = array
 (
 	// Config
@@ -18,16 +20,23 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 	
 	'list' => array
 	(
+
+		'label' => array
+		(
+			'fields' => array('title'),
+			'format' => '%s'
+		),
+
 		'operations' => array
 		(
-			'edit'			=> array
+			'edit'	=> array
 			(
 				'label'		=> &$GLOBALS['TL_LANG']['tl_materials_category']['edit'],
 				'href'		=> 'act=edit',
 				'icon'		=> 'edit.gif'
 			),
 			
-			'copy'			=> array
+			'copy'	=> array
 			(
 				'label'		=> &$GLOBALS['TL_LANG']['tl_materials_category']['copy'],
 				'href'		=> 'act=copy',
@@ -46,7 +55,7 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 	
 	'palettes' => array
 	(	
-		'__selector__'  	=> array('title', 'singleSRC'),
+		'__selector__'  	=> array('title'),
 		'default'			=> '{title_legend},title, singleSRC, imageURL',
 		
 	),
