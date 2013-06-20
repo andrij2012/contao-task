@@ -55,7 +55,7 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 	
 	'palettes' => array
 	(
-		'default'			=> '{title_legend},title,size,image'
+		'default'			=> '{title_legend}, title, size; {image_legend}, image, width, height'
 	),
 
 	
@@ -84,7 +84,7 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['title'],
 			'search'		=> true,
 			'inputType'		=> 'text',
-			'eval'			=> array('mandatory' => true, 'maxlength' => 255),
+			'eval'			=> array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
 			'sql'			=> "varchar(255) NOT NULL default ''"
 		),
 
@@ -92,8 +92,8 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 		(
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['size'],
 			'inputType'		=> 'text',
-			'eval'			=> array('mandatory' => true, 'maxlength' => 10),
-			'sql'			=> "int(10) unsigned NOT NULL default ''"
+			'eval'			=> array('mandatory' => true, 'maxlength' => 10, 'tl_class' => 'w50'),
+			'sql'			=> "float(10) unsigned NOT NULL"
 		),
 
 		'image' => array
@@ -101,9 +101,25 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['image'],
 			'exclude'		=> true,
 			'inputType'		=> 'fileTree',
-			'eval'          => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio', 'mandatory' => true,
+			'eval'          => array('filesOnly' => true, 'files' => true, 'fieldType' => 'radio', 'mandatory' => true,
 							   'path' => 'files/materials_documents'),
 			'sql'           => "varchar(255) NOT NULL default ''"
+		),
+
+		'width' => array
+		(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['width'],
+			'inputType'		=> 'text',
+			'eval'			=> array('mandatory' => true, 'maxlength' => 3, 'tl_class' => 'w50'),
+			'sql'			=> "int(3) unsigned NOT NULL"
+		),
+
+		'height' => array
+		(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['height'],
+			'inputType'		=> 'text',
+			'eval'			=> array('mandatory' => true, 'maxlength' => 3, 'tl_class' => 'w50'),
+			'sql'			=> "int(3) unsigned NOT NULL"
 		)
 	)
 );
@@ -114,5 +130,12 @@ class tl_materials extends Backend
 	{
 		parent::__construct();
 		$this->import('BackendUser', 'User');
+	}
+
+	public function listMaterials($arrRow)
+	{
+		return '<div>
+		<img src=" ' . $arrRow['image'] . ' " style=" height:'. $arrRow['height']. 'px; width:' . $arrRow['width'] .'px; float:left; margin-right: 10px;" /><p><strong>' . $arrRow['title'] . ' (' . $arrRow['size'] . ' mb)</strong></p>
+		 </div>' . "\n";
 	}
 }

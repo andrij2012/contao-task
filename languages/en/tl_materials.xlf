@@ -3,10 +3,10 @@
   <file datatype="php" original="system/modules/materials/languages/en/tl_materials_category.php" source-language="en">
     <body>
       	<trans-unit id="tl_materials.title_legend">
-        	<source>Type and size</source>
+        	<source>Title, size and image</source>
       	</trans-unit>
       	<trans-unit id="tl_materials.title.0">
-        	<source>Type name</source>
+        	<source>Title</source>
       	</trans-unit>
       	<trans-unit id="tl_materials.title.1">
       		<source>Please input a title of document</source>
@@ -15,13 +15,28 @@
           <source>Size</source>
         </trans-unit>
         <trans-unit id="tl_materials.size.1">
-          <source>Please input the size of document</source>
+          <source>Please input the size of document(in Mb)</source>
         </trans-unit>
         <trans-unit id="tl_materials.image.0">
           <source>Add image</source>
         </trans-unit>
         <trans-unit id="tl_materials.image.1">
-          <source>Please choose the image that responsible certain document. The size of image must be 64 x 64 px</source>
+          <source>Please choose the image that responsible certain document.</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.image_legend">
+          <source>Image</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.width.0">
+          <source>Width</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.width.1">
+          <source>Please input width of image in pixels(e.g. 100) </source>
+        </trans-unit>
+        <trans-unit id="tl_materials.height.0">
+          <source>Height</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.height.1">
+          <source>Please input height of image in pixels(e.g. 100) </source>
         </trans-unit>
     </body>
    </file>
