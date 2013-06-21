@@ -55,7 +55,7 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 	
 	'palettes' => array
 	(
-		'default'			=> '{title_legend}, title, size; {image_legend}, image, width, height'
+		'default'			=> '{title_legend}, title, size, src; {image_legend}, image, width, height'
 	),
 
 	
@@ -92,8 +92,8 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 		(
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['size'],
 			'inputType'		=> 'text',
-			'eval'			=> array('mandatory' => true, 'maxlength' => 10, 'tl_class' => 'w50'),
-			'sql'			=> "float(10) unsigned NOT NULL"
+			'eval'			=> array('mandatory' => true, 'maxlength' => 10),
+			'sql'			=> "float(10) unsigned NOT NULL default '0'"
 		),
 
 		'image' => array
@@ -101,9 +101,18 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['image'],
 			'exclude'		=> true,
 			'inputType'		=> 'fileTree',
-			'eval'          => array('filesOnly' => true, 'files' => true, 'fieldType' => 'radio', 'mandatory' => true,
-							   'path' => 'files/materials_documents'),
-			'sql'           => "varchar(255) NOT NULL default ''"
+			'eval'          => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio',
+							   'path' => 'files/materials_documents_img'),
+			'sql'           => "varchar(64) NOT NULL default ''"
+		),
+
+		'src' => array
+		(
+			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['src'],
+			'exclude'		=> true,
+			'inputType'		=> 'fileTree',
+			'eval'			=> array('filesOnly' => true, 'path' => 'files/materials_documents', 'fieldType' => 'radio', 'mandatory' =>true),
+			'sql'			=> "varchar(64) NOT NULL default ''"
 		),
 
 		'width' => array
@@ -135,7 +144,7 @@ class tl_materials extends Backend
 	public function listMaterials($arrRow)
 	{
 		return '<div>
-		<img src=" ' . $arrRow['image'] . ' " style=" height:'. $arrRow['height']. 'px; width:' . $arrRow['width'] .'px; float:left; margin-right: 10px;" /><p><strong>' . $arrRow['title'] . ' (' . $arrRow['size'] . ' mb)</strong></p>
+		<img src=" ' . $arrRow['image'] . ' " style=" height:'. $arrRow['height']. 'px; width:' . $arrRow['width'] .'px; float:left; margin-right: 12px;" /><p><strong>' . $arrRow['title'] . ' (' . $arrRow['size'] . ' Mb)</strong></p>
 		 </div>' . "\n";
 	}
 }

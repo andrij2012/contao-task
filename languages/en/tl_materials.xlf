@@ -29,6 +29,12 @@
         <trans-unit id="tl_materials.width.0">
           <source>Width</source>
         </trans-unit>
+        <trans-unit id="tl_materials.src.0">
+          <source>Path</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.src.1">
+          <source>Path to the file or document</source>
+        </trans-unit>
         <trans-unit id="tl_materials.width.1">
           <source>Please input width of image in pixels(e.g. 100) </source>
         </trans-unit>

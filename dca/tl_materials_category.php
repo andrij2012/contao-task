@@ -90,7 +90,7 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 			'exclude'                 => true,
 			'inputType'               => 'fileTree',
 			'eval'                    => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio', 'mandatory' => true, 'path' => 'files/materials_content'),
-			'sql'                     => "varchar(255) NOT NULL default ''"
+			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 
 		'title' 	=> array
