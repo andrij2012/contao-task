@@ -8,6 +8,27 @@
         <trans-unit id="tl_materials_category.new.1">
           <source>Create a new type of content</source>
         </trans-unit>
+        <trans-unit id="tl_materials_category.edit.0">
+          <source>Edit</source>
+        </trans-unit>
+        <trans-unit id="tl_materials_category.edit.1">
+          <source>Edit this type of content</source>
+        </trans-unit>
+        <trans-unit id="tl_materials_category.copy.0">
+          <source>Copy</source>
+        </trans-unit>
+        <trans-unit id="tl_materials_category.copy.1">
+          <source>Copy this type of content</source>
+        </trans-unit>
+        <trans-unit id="tl_materials_category.delete.1">
+          <source>Delete</source>
+        </trans-unit>
+        <trans-unit id="tl_materials_category.documents.0">
+          <source>Enter</source>
+        </trans-unit>
+        <trans-unit id="tl_materials_category.documents.1">
+          <source>Enter in this type of content</source>
+        </trans-unit>
       	<trans-unit id="tl_materials_category.title_legend">
         	<source>Type and image</source>
       	</trans-unit>

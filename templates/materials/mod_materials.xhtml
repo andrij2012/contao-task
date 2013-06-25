@@ -1,0 +1,24 @@
+<span>Choose the category:</span>
+
+<form action="" method="GET">
+<select name="category">
+  <?php foreach($this->categories as $category): ?>
+    <option value="<?php echo $category['id']; ?>"<?php if ($category['selected']): ?> selected="selected"<?php endif; ?>><?php echo $category['title']; ?></option>
+  <?php endforeach; ?>
+</select>
+<input type="submit" value="OK" />
+</form>
+
+<h3><?php echo $this->categoryTitle; ?></h3>
+<?php echo $this->categoryImage; ?>
+
+<table border="0" cellpadding="4">
+<?php foreach ($this->materials as $materials): ?>
+  <tr>
+    <td><img src="<?php echo $materials['image']; ?>" height="100" width="100" /></td>
+    <td>
+      <p><strong><a href="<?php $materials['src']; ?>"><?php echo $materials['title']; ?></a></strong></p>
+    </td>
+  </tr>
+<?php endforeach; ?>
+</table>

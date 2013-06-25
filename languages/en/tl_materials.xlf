@@ -8,6 +8,21 @@
         <trans-unit id="tl_materials.new.1">
           <source>Create a new document</source>
         </trans-unit>
+        <trans-unit id="tl_materials.edit.0">
+          <source>Edit</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.edit.1">
+          <source>Edit this document</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.copy.0">
+          <source>Copy</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.copy.1">
+          <source>Copy this document</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.delete.1">
+          <source>Delete</source>
+        </trans-unit>
       	<trans-unit id="tl_materials.title_legend">
         	<source>Title and path</source>
       	</trans-unit>
