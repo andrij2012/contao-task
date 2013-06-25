@@ -2,6 +2,12 @@
 <xliff version="1.1">
   <file datatype="php" original="system/modules/materials/languages/en/tl_materials_category.php" source-language="en">
     <body>
+        <trans-unit id="tl_materials.new.0">
+          <source>New document</source>
+        </trans-unit>
+        <trans-unit id="tl_materials.new.1">
+          <source>Create a new document</source>
+        </trans-unit>
       	<trans-unit id="tl_materials.title_legend">
         	<source>Title and path</source>
       	</trans-unit>
