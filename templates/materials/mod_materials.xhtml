@@ -1,24 +1,57 @@
-<span>Choose the category:</span>
+<style type="text/css">
+.url {
+	text-decoration: none;
+	float: left;
+	margin-right: 18px;
+}
+.block {
+	background-color: #D2691E;
+	width: 150px;
+	height: 220px;
+	position: relative;
+	border: #FFF8DC 2px solid;
+	border-radius: 8px;
+	box-shadow: 0.4em 0.4em 5px rgba(0, 0, 0, 0.7);
+}
+.block img {
+	display: block;
+	border: none;
+	margin-top: 2px;
+	width: 100px;
+	height: 150px;
 
-<form action="" method="GET">
-<select name="category">
-  <?php foreach($this->categories as $category): ?>
-    <option value="<?php echo $category['id']; ?>"<?php if ($category['selected']): ?> selected="selected"<?php endif; ?>><?php echo $category['title']; ?></option>
-  <?php endforeach; ?>
-</select>
-<input type="submit" value="OK" />
-</form>
+}
+.url span {
+	color: #fff;
+	font-family: Geneva, Arial, sans-serif;
+	display: block;
+	font-size: 16px;
+	text-align: center;
+	font-style: oblique;
+}
+#wrapper {
+	width: 100px;
+	margin: 20px auto;
+}
+.title {
+	width: 50px;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
 
-<h3><?php echo $this->categoryTitle; ?></h3>
-<?php echo $this->categoryImage; ?>
-
-<table border="0" cellpadding="4">
 <?php foreach ($this->materials as $materials): ?>
-  <tr>
-    <td><img src="<?php echo $materials['image']; ?>" height="100" width="100" /></td>
-    <td>
-      <p><strong><a href="<?php $materials['src']; ?>"><?php echo $materials['title']; ?></a></strong></p>
-    </td>
-  </tr>
+	<a href="<?php $materials['src']; ?>">
+		<div class="block">
+			<div id="wrapper">
+				<img src="<?php echo $materials['image']; ?>" onmouseout="this.src='<?php echo $materials['image']; ?>'" onmouseover="this.src='<?php echo $categories['singleSRC']; ?>'" />
+				<div class="title">
+			  	<span>
+			  		<strong><?php echo $materials['title']; ?></strong>
+			  	</span>
+			  	</div>
+      		</div>
+      	</div>
+  	</a>
 <?php endforeach; ?>
-</table>
