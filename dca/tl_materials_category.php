@@ -1,7 +1,18 @@
 <?php
+
+
+/**
+ * Load tl_materials language file
+ */
 System::loadLanguageFile('tl_materials');
+
+
+/**
+ * Table tl_materials_category
+ */
 $GLOBALS['TL_DCA']['tl_materials_category'] = array
 (
+	// Config
 	'config' => array
 	(
 		'dataContainer' 	=> 'Table',
@@ -16,6 +27,7 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 		)
 	),
 	
+	// List
 	'list' => array
 	(
 		'sorting' => array
@@ -64,12 +76,14 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 		)
 	),
 	
+	// Palettes
 	'palettes' => array
 	(	
 		'default'			=> '{title_legend},title, singleSRC',
 		
 	),
 	
+	// Fields
 	'fields' => array
 	(
 		'id' 		=> array
@@ -104,6 +118,9 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 	)
 );
 
+/**
+ * Class tl_materials_category
+ */
 class tl_materials_category extends Backend
 {
 

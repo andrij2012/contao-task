@@ -1,6 +1,6 @@
 <?php
 /** 
- * Backend
+ * Backend module
  */
 $GLOBALS['BE_MOD']['content']['Materials'] = array
 (
@@ -8,6 +8,6 @@ $GLOBALS['BE_MOD']['content']['Materials'] = array
 	'icon'   => 'system/modules/materials/assets/icon.png'
 );
 /**
- * Frontend
+ * Frontend module
  */
 $GLOBALS['FE_MOD']['miscellaneous']['Materials'] = 'ModuleMaterials';

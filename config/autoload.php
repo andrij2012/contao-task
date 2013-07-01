@@ -12,7 +12,7 @@ ClassLoader::addClasses(array
 	'Contao\MaterialsModel'       => 'system/modules/materials/models/MaterialsModel.php',
 
 	// Modules
-	'Contao\ModuleMaterials'      => 'system/modules/materials/modules/ModuleMaterials.php',
+	'Contao\ModuleMaterials'      => 'system/modules/materials/modules/ModuleMaterials.php'
 ));
 
 
@@ -22,6 +22,5 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'mat_default'        => 'system/modules/materials/templates/materials',
-	'mat_mini'           => 'system/modules/materials/templates/materials',
+	'mat_default'        => 'system/modules/materials/templates/materials'
 ));

@@ -1,6 +1,11 @@
 <?php
+
+/**
+ * Table tl_materials
+ */
 $GLOBALS['TL_DCA']['tl_materials'] = array
 (	
+	// Config
 	'config' => array
 	(
 		'dataContainer' => 'Table',
@@ -14,6 +19,7 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 		)
 	),
 	
+	// List
 	'list' => array
 	(
 		'sorting' => array
@@ -52,13 +58,13 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 		)
 	),
 
-	
+	// Palettes
 	'palettes' => array
 	(
 		'default'			=> '{title_legend}, title, size, src; {image_legend}, image'
 	),
 
-	
+	// Fields
 	'fields' => array
 	(
 		'id' 	=> array
@@ -110,18 +116,30 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 	)
 );
 
+
+/**
+ * Class tl_materials
+ * 
+ * Provide method, that show the list of materials in certain category
+ */
 class tl_materials extends Backend
 {
+
+	/**
+	 * Import the back end user object
+	 */
 	public function __construct()
 	{
 		parent::__construct();
 		$this->import('BackendUser', 'User');
 	}
 
+	/**
+	 * Generate list of materials in Backend
+	 */
 	public function listMaterials($arrRow)
 	{
 			$objModel = \FilesModel::findByPk($arrRow['image']);
-			//clearstatcache();
 			$objDownSrc = \FilesModel::findByPk($arrRow['src']);
 			$size = \Contao\System::getReadableSize(filesize(TL_ROOT . '/' . $objDownSrc->path));
 			return '<div>
