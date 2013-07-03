@@ -1,0 +1,61 @@
+.mod_materials.block {
+	background-color: #D2691E;
+	width: 150px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	float: left;
+	height: 220px;
+	position: relative;
+	border: #FFF8DC 2px solid;
+	border-radius: 8px;
+	box-shadow: 0.4em 0.4em 5px rgba(0, 0, 0, 0.7);
+}
+.mod_materials.block:hover {
+	position: relative;
+	top: -10px;
+}
+.mod_materials.block .wrapper {
+	width: 120px;
+	margin-top: 10px;
+	margin-bottom: 2px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.mod_materials.block .wrapper img {
+	display: block;
+	border: #FFF8DC 2px solid;
+	margin: 0 auto;
+	width: 100px;
+	height: 150px;
+	border-radius: 7px;
+}
+.mod_materials.block .wrapper .title {
+	width: 100px;
+	display: block;
+	margin-top: 3px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.mod_materials.block .title a {
+	text-decoration: none;
+	color: #fff;
+	font-family: Geneva, Arial, sans-serif;
+	display: block;
+	font-size: 18px;
+	font-style: oblique;
+	width: inherit;
+	white-space: pre-line;
+	margin: 0 auto;
+}
+.mod_materials.block .title .size {
+	width: 70px;
+	text-align: center;
+	display: block;
+	margin-top: 1px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #fff;
+	font-size: 10px;
+}

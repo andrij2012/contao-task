@@ -99,8 +99,7 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['image'],
 			'exclude'		=> true,
 			'inputType'		=> 'fileTree',
-			'eval'          => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio',
-							   'path' => 'files/materials/materials_documents_img'),
+			'eval'          => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio'),
 			'sql'           => "varchar(64) NOT NULL default ''"
 		),
 
@@ -109,7 +108,7 @@ $GLOBALS['TL_DCA']['tl_materials'] = array
 			'label'			=> &$GLOBALS['TL_LANG']['tl_materials']['src'],
 			'exclude'		=> true,
 			'inputType'		=> 'fileTree',
-			'eval'			=> array('filesOnly' => true, 'path' => 'files/materials/materials_documents', 'fieldType' => 'radio', 'mandatory' =>true),
+			'eval'			=> array('filesOnly' => true, 'fieldType' => 'radio', 'mandatory' =>true),
 			'sql'			=> "varchar(64) NOT NULL default ''"
 		),
 

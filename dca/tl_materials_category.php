@@ -48,10 +48,17 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 			'edit'	=> array
 			(
 				'label'		=> &$GLOBALS['TL_LANG']['tl_materials_category']['edit'],
-				'href'		=> 'act=edit',
+				'href'		=> 'table=tl_materials',
 				'icon'		=> 'edit.gif'
 			),
 			
+			'editheader' => array
+			(
+				'label' 	=> &$GLOBALS['TL_LANG']['tl_materials_category']['editheader'],
+				'href' 		=> 'act=edit',
+				'icon' 		=> 'header.gif'
+			),
+
 			'copy'	=> array
 			(
 				'label'		=> &$GLOBALS['TL_LANG']['tl_materials_category']['copy'],
@@ -65,13 +72,6 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 				'href'                => 'act=delete',
 				'icon'                => 'delete.gif',
 				'attributes'          => 'onclick = "if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
-			),
-
-			'documents' => array
-			(
-				'label'				=> &$GLOBALS['TL_LANG']['tl_materials_category']['documents'],
-				'href'				=> 'table=tl_materials',
-				'icon'				=> 'store.gif'
 			)
 		)
 	),
@@ -103,7 +103,7 @@ $GLOBALS['TL_DCA']['tl_materials_category'] = array
 			'label'                   => &$GLOBALS['TL_LANG']['tl_materials_category']['singleSRC'],
 			'exclude'                 => true,
 			'inputType'               => 'fileTree',
-			'eval'                    => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio', 'mandatory' => true, 'path' => 'files/materials/materials_content'),
+			'eval'                    => array('filesOnly' => true, 'extensions' => $GLOBALS['TL_CONFIG']['validImageTypes'], 'fieldType' => 'radio', 'mandatory' => true),
 			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 

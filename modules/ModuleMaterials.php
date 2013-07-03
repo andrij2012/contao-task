@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * Run in a custom namespace, so the class can be replaced
+ */
+namespace Contao;
+
+/**
  * Class ModuleMaterials
  */
 class ModuleMaterials extends \Module
@@ -12,15 +17,50 @@ class ModuleMaterials extends \Module
 	 */
 	protected $strTemplate = 'mod_materials';
 
+	/**
+	 * Display a wildcard in the back end
+	 * @return string
+	 */
+	public function generate()
+	{
+		if(TL_MODE == 'BE')
+		{
+			$objTemplates = new \BackendTemplate('be_wildcard');
+
+			$objTemplates->wildcard = '### MATERIALS LIST ###';
+			$objTemplates->title = $this->headline;
+			$objTemplates->id = $this->id;
+			$objTemplates->link = $this->name;
+			$objTemplates->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
+
+			return $objTemplates->parse();
+		}
+
+		return parent::generate();
+	}
+
 
 	/**
 	 * Generate the module
 	 */
 	protected function compile()
 	{
-		$intCategory = ($this->Input->get('category')) ? $this->Input->get('category') : 1;
-		$arrMaterials = array();
+		/**
+		 * Add the CSS
+		 */
+		$GLOBALS['TL_CSS'][] = 'assets/css/mod_materials.css';
 
+		/**
+		 * Add JavaScript document
+		 */
+		$GLOBALS['TL_JAVASCRIPT'][] = 'assets/js/mod_materials.js';
+
+		/**
+		 * Get category ID
+		 * @status - must be fixed
+		 */ 
+		$intCategory  = ($this->Input->get('category')) ? $this->Input->get('category') : 1;
+		$arrMaterials = array();
 
 		/**
 		 * Database query
@@ -33,9 +73,9 @@ class ModuleMaterials extends \Module
 		{
 			$arrMaterials[] = array
 			(
-				'title' = $objMaterials->title,
-				'image' = $objMaterials->image,
-				'src'   = $objMaterials->src
+				'title' => $objMaterials->title,
+				'image' => $objMaterials->image,
+				'src'   => $objMaterials->src
 			);
 		}
 
@@ -43,19 +83,20 @@ class ModuleMaterials extends \Module
 		{
 			$arrCategories[] = array
 			(
-				'id' 		= $objCategories->id,
-				'title'		= $objCategories->title,
-				'singleSRC' = $objCategories->singleSRC,
-				'selected' 	= $blnSelected
+				'id' 		=> $objCategories->id,
+				'title'		=> $objCategories->title,
+				'singleSRC' => $objCategories->singleSRC,
+				'selected' 	=> $blnSelected
 			);
 		}
 
 
 		/**
 		 * Registrate arrays in Template
+		 * @status - must be fixed
 		 */
-		$this->Template->materials = $arrMaterials;
-		$this->Template->categories = $arrCategories;
+		$this->Template->materials     = $arrMaterials;
+		$this->Template->categories    = $arrCategories;
 		$this->Template->categoryTitle = $objCategory->title;
 		$this->Template->categoryImage = $objCategory->singleSRC;
 	}
