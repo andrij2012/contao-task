@@ -11,18 +11,25 @@
 	border-radius: 8px;
 	box-shadow: 0.4em 0.4em 5px rgba(0, 0, 0, 0.7);
 }
+
 .mod_materials.block:hover {
 	position: relative;
 	top: -10px;
+	left: -3px;
 }
-.mod_materials.block .wrapper {
+
+.mod_materials.block
+.wrapper {
 	width: 120px;
 	margin-top: 10px;
 	margin-bottom: 2px;
 	margin-left: auto;
 	margin-right: auto;
 }
-.mod_materials.block .wrapper img {
+
+.mod_materials.block
+.wrapper
+img {
 	display: block;
 	border: #FFF8DC 2px solid;
 	margin: 0 auto;
@@ -30,7 +37,10 @@
 	height: 150px;
 	border-radius: 7px;
 }
-.mod_materials.block .wrapper .title {
+
+.mod_materials.block
+.wrapper
+.title {
 	width: 100px;
 	display: block;
 	margin-top: 3px;
@@ -38,18 +48,24 @@
 	margin-right: auto;
 	text-align: center;
 }
-.mod_materials.block .title a {
+
+.mod_materials.block 
+.title 
+a {
 	text-decoration: none;
 	color: #fff;
-	font-family: Geneva, Arial, sans-serif;
+	font-family: Verdana, sans-serif;
 	display: block;
-	font-size: 18px;
-	font-style: oblique;
+	font-size: 16px;
+	font-style: italic;
 	width: inherit;
 	white-space: pre-line;
 	margin: 0 auto;
 }
-.mod_materials.block .title .size {
+
+.mod_materials.block
+.title
+.size {
 	width: 70px;
 	text-align: center;
 	display: block;

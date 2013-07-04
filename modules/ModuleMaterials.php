@@ -46,58 +46,58 @@ class ModuleMaterials extends \Module
 	protected function compile()
 	{
 		/**
-		 * Add the CSS
+		 * Add the CSSs
 		 */
 		$GLOBALS['TL_CSS'][] = 'assets/css/mod_materials.css';
 
 		/**
-		 * Add JavaScript document
+		 * Add JavaScripts document
 		 */
 		$GLOBALS['TL_JAVASCRIPT'][] = 'assets/js/mod_materials.js';
 
 		/**
-		 * Get category ID
-		 * @status - must be fixed
+		 * Data arrays
 		 */ 
-		$intCategory  = ($this->Input->get('category')) ? $this->Input->get('category') : 1;
-		$arrMaterials = array();
+		$arrayDocuments = array();
+		$arrayCategory 	= array();
 
 		/**
 		 * Database query
 		 */
-		$objMaterials 	= $this->Database->prepare("SELECT * FROM tl_materials WHERE pid=? ORDER BY title")->execute($intCategory);
-		$objCategory  	= $this->Database->prepare("SELECT * FROM tl_materials_category WHERE id=?")->execute($intCategory);
-		$objCategories  = $this->Database->execute("SELECT id, title FROM tl_materials_category ORDER BY title");
+		$objDocuments = $this->Database->prepare("SELECT * FROM tl_materials")->execute();
+		$objCategory = $this->Database->prepare("SELECT * FROM tl_materials_category")->execute();
+
+
+		while($objDocuments->next())
+		{
+			$arrayDocuments[] = array
+			(
+				'id'			=> $objDocuments->id,
+				'pid'			=> $objDocuments->pid,
+				'tstamp'		=> $objDocuments->tstamp,
+				'title'			=> $objDocuments->title,
+				'image'			=> \FilesModel::findByPk($objDocuments->image)->path,
+				'src'			=> \FilesModel::findByPk($objDocuments->src)->path,
+				'size'			=> \Contao\System::getReadableSize(filesize(TL_ROOT . '/' . \FilesModel::findByPk($objDocuments->src)->path))
+			);
+		}
+
 		
-		while($objMaterials->next())
+		while($objCategory->next())
 		{
-			$arrMaterials[] = array
+			$arrayCategory[] = array
 			(
-				'title' => $objMaterials->title,
-				'image' => $objMaterials->image,
-				'src'   => $objMaterials->src
+				'id'		=> $objCategory->id,
+				'tstamp'	=> $objCategory->tstamp,
+				'title'		=> $objCategory->title,
+				'singleSRC'	=> $objCategory->singleSRC
 			);
 		}
-
-		while($objCategories->next())
-		{
-			$arrCategories[] = array
-			(
-				'id' 		=> $objCategories->id,
-				'title'		=> $objCategories->title,
-				'singleSRC' => $objCategories->singleSRC,
-				'selected' 	=> $blnSelected
-			);
-		}
-
 
 		/**
 		 * Registrate arrays in Template
-		 * @status - must be fixed
 		 */
-		$this->Template->materials     = $arrMaterials;
-		$this->Template->categories    = $arrCategories;
-		$this->Template->categoryTitle = $objCategory->title;
-		$this->Template->categoryImage = $objCategory->singleSRC;
+		$this->Template->documents = $arrayDocuments;
+		$this->Template->category  = $arrayCategory;
 	}
 }

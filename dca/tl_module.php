@@ -2,7 +2,7 @@
 /**
  * Add palettes to tl_module
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['materials'] = '{title_legend},name,headline,type;{template_legend:hide},materials_layout;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['materials'] = '{title_legend},name,type;{template_legend:hide},materials_layout;{expert_legend:hide},guests,cssID,space';
 
 /**
  * Add fields to tl_module

@@ -1,20 +1,11 @@
-<?php foreach ($this->materials as $material): ?>
-<?php
-	/**
-	 * Must be in ModuleMaterials.php
-	 */
-	$objModel 	= \FilesModel::findByPk($material['image']);
-	$objDownSrc = \FilesModel::findByPk($material['src']);
-	$size 		= \Contao\System::getReadableSize(filesize(TL_ROOT . '/' . $objDownSrc->path));
-?> 
-	<div class="<?php echo $this->class; ?> block">
+<?php foreach ($this->documents as $doc): ?>
+	<div class="<?php echo $this->class; ?>">
 		<div class="wrapper">
-			<img src="<?php echo $objModel->path; ?>" />
+			<img src="<?php echo $doc['image']; ?>" />
 			<div class="title">
-	  			<a href=""><?php echo $material['title']; ?></a>
-	  			<div class="size">Size: <?php echo $size; ?></div>
+	  			<a href="<?php echo $_SERVER['PHP_SELF'] .'?file='. $doc['src']; ?>"><?php echo $doc['title']; ?></a>
+	  			<div class="size">Size: <?php echo $doc['size']; ?></div>
 			</div>
 		</div>
-		
   	</div>
 <?php endforeach; ?>
