@@ -1,9 +1,9 @@
 <?php foreach ($this->documents as $doc): ?>
-	<div class="<?php echo $this->class; ?>">
+	<div class="<?php echo $this->class; ?>" id="downloads_materials">
 		<div class="wrapper">
 			<img src="<?php echo $doc['image']; ?>" />
 			<div class="title">
-	  			<a href="<?php echo $_SERVER['PHP_SELF'] .'?file='. $doc['src']; ?>"><?php echo $doc['title']; ?></a>
+	  			<a href="<?php echo $doc['src']; ?>"><?php echo $doc['title']; ?></a>
 	  			<div class="size">Size: <?php echo $doc['size']; ?></div>
 			</div>
 		</div>

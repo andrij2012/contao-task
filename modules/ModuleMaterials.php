@@ -36,6 +36,18 @@ class ModuleMaterials extends \Module
 			return $objTemplates->parse();
 		}
 
+		else
+		{
+			$file = \Input::get('file', true);
+
+			// Send the file to the browser and do not send a 404 header (see #4632)
+			if ($file != '')
+			{
+				$this->sendFileToBrowser($file);
+				exit;
+			}
+		}
+
 		return parent::generate();
 	}
 
@@ -48,12 +60,12 @@ class ModuleMaterials extends \Module
 		/**
 		 * Add the CSSs
 		 */
-		$GLOBALS['TL_CSS'][] = 'assets/css/mod_materials.css';
+		$GLOBALS['TL_CSS'][] = 'system/modules/materials/assets/css/mod_materials.css';
 
 		/**
 		 * Add JavaScripts document
 		 */
-		$GLOBALS['TL_JAVASCRIPT'][] = 'assets/js/mod_materials.js';
+		$GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/materials/assets/js/mod_materials.js';
 
 		/**
 		 * Data arrays
@@ -67,7 +79,6 @@ class ModuleMaterials extends \Module
 		$objDocuments = $this->Database->prepare("SELECT * FROM tl_materials")->execute();
 		$objCategory = $this->Database->prepare("SELECT * FROM tl_materials_category")->execute();
 
-
 		while($objDocuments->next())
 		{
 			$arrayDocuments[] = array
@@ -77,7 +88,7 @@ class ModuleMaterials extends \Module
 				'tstamp'		=> $objDocuments->tstamp,
 				'title'			=> $objDocuments->title,
 				'image'			=> \FilesModel::findByPk($objDocuments->image)->path,
-				'src'			=> \FilesModel::findByPk($objDocuments->src)->path,
+				'src'			=> $_SERVER['PHP_SELF'] .'?file=' . \FilesModel::findByPk($objDocuments->src)->path,
 				'size'			=> \Contao\System::getReadableSize(filesize(TL_ROOT . '/' . \FilesModel::findByPk($objDocuments->src)->path))
 			);
 		}

@@ -1,5 +1,5 @@
-.mod_materials.block {
-	background-color: #D2691E;
+.mod_materials {
+	background-color: #0066FF;
 	width: 150px;
 	margin-left: 10px;
 	margin-top: 10px;
@@ -8,17 +8,19 @@
 	height: 220px;
 	position: relative;
 	border: #FFF8DC 2px solid;
-	border-radius: 8px;
+	border-radius: 7px;
 	box-shadow: 0.4em 0.4em 5px rgba(0, 0, 0, 0.7);
 }
 
-.mod_materials.block:hover {
+.mod_materials:hover {
 	position: relative;
 	top: -10px;
 	left: -3px;
+	border-radius: 15px;
+	cursor: pointer;
 }
 
-.mod_materials.block
+.mod_materials
 .wrapper {
 	width: 120px;
 	margin-top: 10px;
@@ -27,7 +29,7 @@
 	margin-right: auto;
 }
 
-.mod_materials.block
+.mod_materials
 .wrapper
 img {
 	display: block;
@@ -38,7 +40,7 @@ img {
 	border-radius: 7px;
 }
 
-.mod_materials.block
+.mod_materials
 .wrapper
 .title {
 	width: 100px;
@@ -49,7 +51,7 @@ img {
 	text-align: center;
 }
 
-.mod_materials.block 
+.mod_materials
 .title 
 a {
 	text-decoration: none;
@@ -58,12 +60,12 @@ a {
 	display: block;
 	font-size: 16px;
 	font-style: italic;
-	width: inherit;
+	width: 100%;
 	white-space: pre-line;
 	margin: 0 auto;
 }
 
-.mod_materials.block
+.mod_materials
 .title
 .size {
 	width: 70px;
