@@ -73,11 +73,9 @@ class ModuleMaterials extends \Module
 		$arrayDocuments = array();
 		$arrayCategory 	= array();
 
-		/**
-		 * Database query
-		 */
-		$objDocuments = $this->Database->prepare("SELECT * FROM tl_materials")->execute();
-		$objCategory = $this->Database->prepare("SELECT * FROM tl_materials_category")->execute();
+		$objDocuments 	= \MaterialsModel::findAll();
+		$objCategory	= \MaterialsCategoryModel::findAll();
+		
 
 		while($objDocuments->next())
 		{
@@ -98,10 +96,10 @@ class ModuleMaterials extends \Module
 		{
 			$arrayCategory[] = array
 			(
-				'id'		=> $objCategory->id,
-				'tstamp'	=> $objCategory->tstamp,
-				'title'		=> $objCategory->title,
-				'singleSRC'	=> $objCategory->singleSRC
+				'id'			=> $objCategory->id,
+				'tstamp'		=> $objCategory->tstamp,
+				'title'			=> $objCategory->title,
+				'singleSRC'		=> $objCategory->singleSRC
 			);
 		}
 
