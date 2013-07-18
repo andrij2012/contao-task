@@ -76,6 +76,7 @@ class ModuleMaterials extends \Module
 		$objDocuments 	= \MaterialsModel::findAll();
 		$objCategory	= \MaterialsCategoryModel::findAll();
 		
+		$objImage;
 
 		while($objDocuments->next())
 		{
@@ -99,9 +100,10 @@ class ModuleMaterials extends \Module
 				'id'			=> $objCategory->id,
 				'tstamp'		=> $objCategory->tstamp,
 				'title'			=> $objCategory->title,
-				'singleSRC'		=> $objCategory->singleSRC
+				'singleSRC'		=> \FilesModel::findByPk($objCategory->singleSRC)->path
 			);
 		}
+
 
 		/**
 		 * Registrate arrays in Template
