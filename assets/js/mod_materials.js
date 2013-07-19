@@ -1,10 +1,14 @@
 (function() {	
 	window.onload = function() {
+		// Get elements
 		var mod_materials = document.getElementsByClassName('mod_materials');
 		var images = document.getElementsByClassName('img');
-
-		var src1;
-		var src2;
+		
+		// src of img when mouseout
+		var srcOnMouseOut;
+		
+		//src of img when mouseover
+		var srcOnMouseOver;
 		
 
 		for(var i = 0; i < mod_materials.length; i++) {
@@ -16,13 +20,13 @@
 
 		for(var i =0; i < images.length; i++) {
 			images[i].onmouseover = function() {
-				src1 = this.getAttribute('src');
-				src2 = this.getAttribute('data-alt-src');
-				this.setAttribute('src', src2);
+				srcOnMouseOut = this.getAttribute('src');
+				srcOnMouseOver = this.getAttribute('data-alt-src');
+				this.setAttribute('src', srcOnMouseOver);
 			};
 
 			images[i].onmouseout = function() {
-				this.setAttribute('src', src1);
+				this.setAttribute('src', srcOnMouseOut);
 			};
 		}
 
