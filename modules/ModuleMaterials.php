@@ -15,7 +15,7 @@ class ModuleMaterials extends \Module
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'mod_materials';
+	protected $strTemplate = 'materials_default';
 
 	/**
 	 * Display a wildcard in the back end

@@ -29,6 +29,6 @@ class tl_module_materials extends Backend
 	 */
 	public function getListTemplates()
 	{
-		return $this->getTemplateGroup('mod_materials');
+		return $this->getTemplateGroup('materials_default');
 	}
 }
