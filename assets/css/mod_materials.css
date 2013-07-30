@@ -1,9 +1,7 @@
 .mod_materials {
 	background-color: #0066FF;
 	width: 150px;
-	margin-left: 10px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 10px, 10px, 0, 10px;
 	float: left;
 	height: 220px;
 	position: relative;
@@ -20,8 +18,7 @@
 	cursor: pointer;
 }
 
-.mod_materials
-.wrapper {
+.mod_materials .wrapper {
 	width: 120px;
 	margin-top: 10px;
 	margin-bottom: 2px;
@@ -29,9 +26,7 @@
 	margin-right: auto;
 }
 
-.mod_materials
-.wrapper
-img {
+.mod_materials .wrapper img {
 	display: block;
 	border: #FFF8DC 2px solid;
 	margin: 0 auto;
@@ -40,20 +35,14 @@ img {
 	border-radius: 7px;
 }
 
-.mod_materials
-.wrapper
-.title {
+.mod_materials .wrapper .title {
 	width: 100px;
 	display: block;
-	margin-top: 3px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	text-align: center;
 }
 
-.mod_materials
-.title 
-a {
+.mod_materials .title a {
 	text-decoration: none;
 	color: #fff;
 	font-family: Verdana, sans-serif;
@@ -65,15 +54,11 @@ a {
 	margin: 0 auto;
 }
 
-.mod_materials
-.title
-.size {
+.mod_materials .title .size {
 	width: 70px;
 	text-align: center;
 	display: block;
-	margin-top: 1px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 1px auto, 0, auto;
 	color: #fff;
 	font-size: 10px;
 }

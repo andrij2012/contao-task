@@ -23,5 +23,5 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'materials_default'        				=> 'system/modules/materials/templates/materials'
+	'materials_default'        			=> 'system/modules/materials/templates/materials'
 ));

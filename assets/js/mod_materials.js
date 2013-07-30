@@ -1,6 +1,6 @@
 (function() {	
 	window.onload = function() {
-		// Get elements
+
 		var mod_materials = document.getElementsByClassName('mod_materials');
 		var images = document.getElementsByClassName('img');
 		
@@ -29,7 +29,5 @@
 				this.setAttribute('src', srcOnMouseOut);
 			};
 		}
-
-
 	};
 })();
